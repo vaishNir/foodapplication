@@ -58,9 +58,10 @@ await cartmodel.findOneAndUpdate({ foodid: req.params.foodid,
 };
 
 const viewcart = (req, res) => {
+  console.log(req.params);
   const customerId = req.params.CustomerId; // Assuming CustomerId is passed in the request parameters
   cartmodel
-    .find({ CustomerId: customerId }).populate("newfoods") // Filtering based on customerId
+    .find({customerId:customerId}).populate("newfoods") // Filtering based on customerId
     .exec()
     .then((data) => {
       if (data && data.length > 0) {

@@ -47,6 +47,9 @@ router.get('/vieworderdetails/:userid',ordercontrol.vieworderdetails)
 router.get('/viewcustomerorder',ordercontrol.viewcustomerorder)
 router.post('/staffaddorder/:staffid',staffordercontrol.staffaddorder)
 router.get('/viewstafforders',staffordercontrol.viewallstafforder)
+router.get('/staffaddorder/:customerId',staffordercontrol.staffaddorder)
+
+
 
 // done
 router.get('/viewstafforderdetails/:staffid',staffordercontrol.stafforderdetails)

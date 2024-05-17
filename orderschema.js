@@ -4,7 +4,10 @@ const orderscheme = mongoose.Schema({
         type:String,
     },
     userid:{
+        type:mongoose.Schema.Types.ObjectId,
         type:String,
+        ref:"newusers",
+
     },
     paymentstatus:{
         type:Boolean,

@@ -9,6 +9,7 @@ const staffaddorder = (req, res) => {
       count: x.count,
       customername:req.params.customername,
       date: x.date,
+      customerId:x.customerId,
     });
     newStafforder
       .save()
