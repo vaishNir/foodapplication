@@ -1,6 +1,7 @@
 const staffordermodel = require("./stafforderschema");
 
 const staffaddorder = (req, res) => {
+  console.log("req. bodyy", req.body)
   req.body.state.map((x) => {
     const newStafforder = new staffordermodel({
       foodid: x.foodid._id,
@@ -9,6 +10,7 @@ const staffaddorder = (req, res) => {
       count: x.count,
       customername:req.params.customername,
       date: x.date,
+      customerId:x.customerId,
     });
     newStafforder
       .save()
@@ -28,7 +30,9 @@ const staffaddorder = (req, res) => {
 };
 
 const stafforderdetails = (req,res) => {
-  staffordermodel.find({staffid: req.params.staffid}).populate("foodid")
+  const staffid = req.params.staffid;
+  console.log("starf id", staffid)
+  staffordermodel.find({staffid}).populate("foodid")
   .exec()
   .then((data) => {
     res.json({

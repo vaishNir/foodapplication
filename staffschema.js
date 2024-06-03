@@ -1,5 +1,9 @@
 const mongoose=require("mongoose")
 const staffscheme=mongoose.Schema({
+    staffid:{
+        type:Number,
+        require:true
+    },
     fname:{
         type:String,
         required:true
@@ -9,7 +13,7 @@ const staffscheme=mongoose.Schema({
         required:true
     },
     dob:{
-        type:Date,
+        type:String,
         required:true
     },
     gender:{

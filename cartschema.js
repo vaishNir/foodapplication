@@ -6,18 +6,11 @@ const cartscheme = mongoose.Schema({
     ref: "newfoods",
   },
   CustomerId: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
+    ref: "newusers"
   },
   count: {
-    type: Number,
-    required: true,
-  },
-  productimg: {
-    type: String,
-    required: true,
-  },
-  price: {
     type: Number,
     required: true,
   },
