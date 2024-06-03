@@ -1,6 +1,7 @@
 const Staffmodel = require("./staffschema");
 const staffregistration = (req, res) => {
   const newStaff = new Staffmodel({
+    staffid:req.body.staffid,
     fname: req.body.fname,
     lname: req.body.lname,
     dob: req.body.dob,
@@ -28,6 +29,28 @@ const staffregistration = (req, res) => {
       });
     });
 };
+
+const staffprofile = (req, res) => {
+  const a= req.params.staffid
+  Staffmodel
+    .findById(a)
+    .exec()
+    .then((data) => {
+      res.json({
+        status: 200,
+        msg: "Viewed Successfully",
+      data: data,
+      });
+    })
+    .catch((err) => {
+      res.json({
+        status: 500,
+        msg: "Not Viewed",
+        error: err,
+      });
+    });
+};
+
 
 const stafflogin = (req, res) => {
   Staffmodel.findOne({ email: req.body.email })
@@ -96,4 +119,4 @@ const staffresetpassword = (req, res) => {
       });
 };
 
-module.exports = { staffregistration, stafflogin, staffresetpassword };
+module.exports = { staffregistration, stafflogin, staffresetpassword,staffprofile };

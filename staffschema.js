@@ -1,5 +1,9 @@
 const mongoose=require("mongoose")
 const staffscheme=mongoose.Schema({
+    staffid:{
+        type:Number,
+        require:true
+    },
     fname:{
         type:String,
         required:true
